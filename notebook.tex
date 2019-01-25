@@ -280,6 +280,21 @@
     
 
     
+    \section{Lab One Visualization and Data
+Preprocessing}\label{lab-one-visualization-and-data-preprocessing}
+
+\begin{itemize}
+\tightlist
+\item
+  Ho, Andy
+\item
+  Nguyen, An
+\item
+  Pafford, Jodi
+\item
+  Wheelis, Tori
+\end{itemize}
+
     \section{Business Understanding (10)}\label{business-understanding-10}
 
 This dataset contains information from schools within the California
@@ -321,12 +336,397 @@ lawmakers better fund schools.
 \end{itemize}
 
 Data is important because - It tells you how students performed on the
-CAASPP (state wide) test - It tells you what achievement/performance
+California Assessment of Student Performance and Progress (CAASPP),
+california's state wide test - It tells you what achievement/performance
 gaps exist - so policy can be made to address these issues
 
     \section{Data Meaning Type (10)}\label{data-meaning-type-10}
 
-\emph{An is putting this part together}
+\begin{itemize}
+\tightlist
+\item
+  cds (int): The 14-digit County-District-School code is the official,
+  unique identification of a school within California. The first two
+  digits identify the county, the next five digits identify the school
+  district, and the last seven digits identify the school.
+\item
+  rtype (char): Identify the record's type;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    S=School Record
+  \item
+    D=District/LEA Record
+  \item
+    X=State Record.
+  \end{itemize}
+\item
+  schoolname (str): Name of school the record belongs to.
+\item
+  districtname (str): Name of school distritct the record belongs to.
+\item
+  countyname (str): Name of county the record belongs to.
+\item
+  charter\_flag (char): Indicate if record belongs to a charter school;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Y=Yes
+  \item
+    blank
+  \end{itemize}
+\item
+  coe\_flag (char): Indicate if record belongs to a County Office of
+  Education facility
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Y=Yes
+  \item
+    blank
+  \end{itemize}
+\item
+  dass\_flag (char): Indicate if record belongs to a school with a
+  Dashboard Alternative School Status (DASS)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Y=Yes
+  \item
+    blank
+  \end{itemize}
+\item
+  studentgroup (str): Name of student group the record reflects;
+
+  \begin{itemize}
+  \tightlist
+  \item
+    ALL=All Students
+  \item
+    AA=Black/African American
+  \item
+    AI=American Indian or Alaska Native
+  \item
+    AS=Asian
+  \item
+    FI=Filipino
+  \item
+    HI=Hispanic
+  \item
+    PI=Pacific Islander
+  \item
+    WH=White
+  \item
+    MR=Multiple Races/Two or More
+  \item
+    EL=English Learner
+  \item
+    ELO=English Learners Only
+  \item
+    RFP=RFEPs Only
+  \item
+    EO=English Only
+  \item
+    SED=Socioeconomically Disadvantaged
+  \item
+    SWD=Students with Disabilities
+  \item
+    FOS=Foster Youth
+  \item
+    HOM=Homeless Youth
+  \end{itemize}
+\item
+  currdenom (int): Number of valid students of the current year who took
+  the Smarter Balanced summative assessment in Math. For SWD student
+  group only, students who have a current disability code in CALPADS or
+  was a student with disability who exited a special education program
+  and did not receive services for up to two years (i.e., exited after
+  April 15, 2016). These students' scores are used to calculate the
+  Distance from Standard.
+\item
+  currdenom\_swd (int): number of valid students of the current year
+  with disabilities who took the Smarter Balanced summative assessment
+  in Math and have a current disability code in CALPADS. These students
+  and are included in the count to determine whether the SWD student
+  group is assigned a performance level. (Note: This count of students
+  does not include those who exited a special education program within
+  the past two years (i.e., exited program after April 15, 2016).
+\item
+  currstatus (float): Average distance from Standard of students from
+  the current year who took the Smarter Balanced summative assessment in
+  Math.
+\item
+  priordenom (float): Number of valid students of the previous year who
+  took the Smarter Balanced summative assessment in Math. For SWD
+  student group only, students who have a current disability code in
+  CALPADS or was a student with disability who exited a special
+  education program and did not receive services for up to two years
+  (i.e., exited after April 15, 2016). These students' scores are used
+  to calculate the Distance from Standard.
+\item
+  priordenom\_swd (float): number of valid students of the previous year
+  with disabilities who took the Smarter Balanced summative assessment
+  in Math and have a current disability code in CALPADS. These students
+  and are included in the count to determine whether the SWD student
+  group is assigned a performance level. (Note: This count of students
+  does not include those who exited a special education program within
+  the past two years (i.e., exited program after April 15, 2016).
+\item
+  priorstatus (float): Average distance from Standard of students from
+  the previous year who took the Smarter Balanced summative assessment
+  in Math.
+\item
+  change (float): Difference between current status and prior status.
+\item
+  statuslevel (int): The LEA, school, or student group's current year a
+  Status level for mathematics.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    1=Very Low
+  \item
+    2=Low
+  \item
+    3=Medium
+  \item
+    4=High
+  \item
+    5=Very High
+  \item
+    0=No Data
+  \end{itemize}
+\item
+  changelevel (int): The difference in results from the current year to
+  the prior year.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    1=Decreased Significantly
+  \item
+    2=Decreased
+  \item
+    3=Maintained
+  \item
+    4=Increased
+  \item
+    5=Increased Significantly
+  \item
+    0=No Data
+  \end{itemize}
+\item
+  color (int): The combination of the five Status levels and the five
+  Change levels, with red being the lowest and blue the highest in
+  performance.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    1=Red
+  \item
+    2=Orange
+  \item
+    3=Yellow
+  \item
+    4=Green
+  \item
+    5=Blue
+  \item
+    0=No Color
+  \end{itemize}
+\item
+  box (int): If a color was assigned, this value represents the specific
+  5x5 grid location.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    10=Very High, Declined Significantly
+  \item
+    20=Very High, Declined
+  \item
+    30=Very High, Mantained
+  \item
+    40=Very High, Increased
+  \item
+    50=Very High, Increased Significantly
+  \item
+    60=High, Declined Significantly
+  \item
+    70=High, Declined
+  \item
+    80=High, Mantained
+  \item
+    90=High, Increased
+  \item
+    100=High, Increased Significantly
+  \item
+    110=Medium, Declined Significantly
+  \item
+    120=Medium, Declined
+  \item
+    130=Medium, Mantained
+  \item
+    140=Medium, Increased
+  \item
+    150=Medium, Increased Significantly
+  \item
+    160=Low, Declined Significantly
+  \item
+    170=Low, Declined
+  \item
+    180=Low, Mantained
+  \item
+    190=Low, Increased
+  \item
+    200=Low, Increased Significantly
+  \item
+    210=Very Low, Declined Significantly
+  \item
+    220=Very Low, Declined
+  \item
+    230=Very Low, Mantained
+  \item
+    240=Very Low, Increased
+  \item
+    250=Very Low, Increased Significantly
+  \item
+    0=No Color
+  \end{itemize}
+\item
+  hscutpoints (char): Indicates if the school or district is held to the
+  High School cut points.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Y=Yes
+  \item
+    blank
+  \end{itemize}
+\item
+  curradjustment (float): The number of points removed from the current
+  year status due to the participation rate being below 95\%.
+\item
+  prioradjustment (float): The number of points removed from the
+  previous year status due to the participation rate being below 95\%.
+\item
+  pairshare\_method (str):This identifies schools that do not serve
+  grade 3 or higher and were assigned a district average, county
+  average, or weighted school average of up to three receiving schools
+  for Distance From Standard.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    DA=District Average
+  \item
+    CA=County Average
+  \item
+    WA=Weighted Average
+  \item
+    blank
+  \end{itemize}
+\item
+  caa\_denom (float): Number of valid students of the current year who
+  took the California Alternate Assessment in Math.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only populated for records where studentgroup=ALL. If the school or
+    district did not test any students under the California Alternate
+    Assessment, this value will be zero.
+  \end{itemize}
+\item
+  caa\_level1\_num (float): Number of valid students of the current year
+  who took the California Alternate Assessment in Math and scored
+  achievement level 1.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only populated for records where studentgroup=ALL and
+    caa\_denom\textgreater{}=11.
+  \end{itemize}
+\item
+  caa\_level1\_pct (float): Percent of valid students of the current
+  year who took the California Alternate Assessment in Math and scored
+  achievement level 1.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only populated for records where studentgroup=ALL and
+    caa\_denom\textgreater{}=11.
+  \end{itemize}
+\item
+  caa\_level2\_num (float): Number of valid students of the current year
+  who took the California Alternate Assessment in Math and scored
+  achievement level 2.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only populated for records where studentgroup=ALL and
+    caa\_denom\textgreater{}=11.
+  \end{itemize}
+\item
+  caa\_level2\_pct (float): Percent of valid students of the current
+  year who took the California Alternate Assessment in Math and scored
+  achievement level 2.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only populated for records where studentgroup=ALL and
+    caa\_denom\textgreater{}=11.
+  \end{itemize}
+\item
+  caa\_level3\_num (float): Number of valid students of the current year
+  who took the California Alternate Assessment in Math and scored
+  achievement level 3.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only populated for records where studentgroup=ALL and
+    caa\_denom\textgreater{}=11.
+  \end{itemize}
+\item
+  caa\_level3\_pct (float): Percent of valid students of the current
+  year who took the California Alternate Assessment in Math and scored
+  achievement level 3.
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Only populated for records where studentgroup=ALL and
+    caa\_denom\textgreater{}=11.
+  \end{itemize}
+\item
+  ReportingYear (int): Reporting year, 2018.
+\end{itemize}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}58}]:} \PY{k+kn}{import} \PY{n+nn}{pandas} \PY{k}{as} \PY{n+nn}{pd}
+         \PY{k+kn}{import} \PY{n+nn}{numpy} \PY{k}{as} \PY{n+nn}{np}
+         \PY{k+kn}{import} \PY{n+nn}{matplotlib}\PY{n+nn}{.}\PY{n+nn}{pyplot} \PY{k}{as} \PY{n+nn}{plt}
+         \PY{k+kn}{import} \PY{n+nn}{warnings}
+         \PY{n}{warnings}\PY{o}{.}\PY{n}{simplefilter}\PY{p}{(}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ignore}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n+ne}{DeprecationWarning}\PY{p}{)}
+         \PY{o}{\PYZpc{}}\PY{k}{matplotlib} inline
+         
+         \PY{c+c1}{\PYZsh{}Import data from data file and name it math2018}
+         
+         \PY{n}{excel\PYZus{}file} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mathdownload2018.xlsx}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{math2018}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{read\PYZus{}excel}\PY{p}{(}\PY{n}{excel\PYZus{}file}\PY{p}{)}
+\end{Verbatim}
+
 
     \section{Data Quality (15)}\label{data-quality-15}
 
@@ -336,38 +736,223 @@ happening because a student may be in several different categories
 (i.e., a student may be White (WH), in foster care (FOS), be living in a
 low socio-economic status (SED) and be served by special education (SWD)
 -- student will `count' in 4 of the 16 categories listed). No edits were
-needed for this phenomenon. Additionally, there were columns of data
-that we choose to eliminate from the data altogether. There were 7
-columns at the end of the dataset that give the data for the
-``California Alternate Assessment''. This test is usually given to
-students served by special education who have profound disabilities and
-are unable to complete the same test as others. There are approximately
-1\% of the total population who are included, and the data does not
-support our current research, therefore, these columns are also deleted.
-Next, we found a column of data called ``pairshare\_method''. If a
+needed for this phenomenon, we need to be aware of this as we move
+forward.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}59}]:} \PY{c+c1}{\PYZsh{}View basic info about the data file}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 148933 entries, 0 to 148932
+Data columns (total 32 columns):
+cds                 148933 non-null int64
+rtype               148933 non-null object
+schoolname          134824 non-null object
+districtname        148916 non-null object
+countyname          148916 non-null object
+charter\_flag        15685 non-null object
+coe\_flag            487 non-null object
+dass\_flag           7804 non-null object
+studentgroup        148933 non-null object
+currdenom           148933 non-null int64
+currdenom\_swd       10205 non-null float64
+currstatus          97487 non-null float64
+priordenom          148842 non-null float64
+priordenom\_swd      9952 non-null float64
+priorstatus         96934 non-null float64
+change              93435 non-null float64
+statuslevel         148933 non-null int64
+changelevel         148933 non-null int64
+color               148933 non-null int64
+box                 148933 non-null int64
+hscutpoints         25661 non-null object
+curradjustment      8577 non-null float64
+prioradjustment     9795 non-null float64
+pairshare\_method    91 non-null object
+caa\_denom           10781 non-null float64
+caa\_level1\_num      1411 non-null float64
+caa\_level1\_pct      1411 non-null float64
+caa\_level2\_num      1411 non-null float64
+caa\_level2\_pct      1411 non-null float64
+caa\_level3\_num      1411 non-null float64
+caa\_level3\_pct      1411 non-null float64
+ReportingYear       148933 non-null int64
+dtypes: float64(15), int64(7), object(10)
+memory usage: 36.4+ MB
+
+    \end{Verbatim}
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}60}]:} \PY{c+c1}{\PYZsh{}View initial findings of the \PYZdq{}ALL\PYZdq{} cateogry equaly all the other categories from the same campus.}
+         
+         \PY{n}{math2018}\PY{p}{[}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cds}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{studentgroup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{currdenom}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{]}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}60}]:}                    cds studentgroup  currdenom
+         0                    0           AA     171493
+         1                    0           AI      16622
+         2                    0          ALL    3166312
+         3                    0           AS     293068
+         4                    0           EL     999885
+         5                    0          ELO     512332
+         6                    0           EO    1790552
+         7                    0           FI      71096
+         8                    0          FOS      20913
+         9                    0           HI    1735972
+         10                   0          HOM     115267
+         11                   0           MR     118473
+         12                   0           PI      14849
+         13                   0          RFP     487553
+         14                   0          SED    1978891
+         15                   0          SWD     396607
+         16                   0           WH     733191
+         17       1100170000000           AA          2
+         18       1100170000000          ALL         20
+         19       1100170000000           AS          1
+         20       1100170000000           EL          8
+         21       1100170000000          ELO          8
+         22       1100170000000           EO          8
+         23       1100170000000           FI          1
+         24       1100170000000          FOS          1
+         25       1100170000000           HI         14
+         26       1100170000000          HOM          2
+         27       1100170000000           MR          2
+         28       1100170000000          SED         16
+         29       1100170000000          SWD          5
+         {\ldots}                {\ldots}          {\ldots}        {\ldots}
+         148903  58727690000000           EL          6
+         148904  58727690000000          ELO          4
+         148905  58727690000000           EO        129
+         148906  58727690000000           FI          2
+         148907  58727690000000          FOS          1
+         148908  58727690000000           HI         42
+         148909  58727690000000          HOM          1
+         148910  58727690000000           MR         18
+         148911  58727690000000           PI          1
+         148912  58727690000000          RFP          2
+         148913  58727690000000          SED         67
+         148914  58727690000000          SWD         17
+         148915  58727690000000           WH         73
+         148916  58727695838305           AA          9
+         148917  58727695838305           AI          1
+         148918  58727695838305          ALL        152
+         148919  58727695838305           AS          4
+         148920  58727695838305           EL          6
+         148921  58727695838305          ELO          4
+         148922  58727695838305           EO        129
+         148923  58727695838305           FI          2
+         148924  58727695838305          FOS          1
+         148925  58727695838305           HI         42
+         148926  58727695838305          HOM          1
+         148927  58727695838305           MR         18
+         148928  58727695838305           PI          1
+         148929  58727695838305          RFP          2
+         148930  58727695838305          SED         67
+         148931  58727695838305          SWD         17
+         148932  58727695838305           WH         73
+         
+         [148933 rows x 3 columns]
+\end{Verbatim}
+            
+    Additionally, there were columns of data that we choose to eliminate
+from the data altogether. There were 7 columns at the end of the dataset
+that give the data for the ``California Alternate Assessment''. This
+test is usually given to students served by special education who have
+profound disabilities and are unable to complete the same test as
+others. There are approximately 1\% of the total population who are
+included, and the data does not support our current research, therefore,
+these columns are also deleted.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}61}]:} \PY{c+c1}{\PYZsh{}Delete most of the ending columns that are all about alternate testing: profound disabilities (all the \PYZsq{}caa\PYZus{}...\PYZsq{} columns)}
+         \PY{c+c1}{\PYZsh{}Delete reporting year (not needed since all data is 2018)}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{caa\PYZus{}denom}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{caa\PYZus{}level1\PYZus{}num}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{caa\PYZus{}level1\PYZus{}pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{caa\PYZus{}level2\PYZus{}num}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{caa\PYZus{}level2\PYZus{}pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{caa\PYZus{}level3\PYZus{}num}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{caa\PYZus{}level3\PYZus{}pct}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ReportingYear}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+
+
+    Next, we found a column of data called ``pairshare\_method''. If a
 campus does not include students of a testing grade level (i.e. PK
 campuses) or the campus only serves special populations (i.e., mental
 health hospital), the data is often paired with another campus in the
 district or charter. If we kept this data in our dataset, these would be
 duplicates. Therefore, the lines of data were deleted and then the
-column was deleted. There are many missing values, however, they are not
-mistakes. The values that are missing appear when a population has 10 or
-fewer students represented. When this occurs, the data is not calculated
-for the purpose of this data file and state accountability ratings. As
-we look at the data, you will notice some of the larger category
-averages come out to NaN (Not a Number) because each individual total is
-10 or fewer. We chose to delete these lines from our dataset because the
-data we need to calculate is not included for these lines.
+column was deleted.
 
-Simple Statistics (10) We ran df.describe() on the full dataset to
-understand the range, average, and quartile of the numerical values. Due
-to the way the data is setup, this doesn't give us very much
-information. From this output, however, we can use the `count' to find
-out the location of most of our `NaN'.
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}62}]:} \PY{c+c1}{\PYZsh{}We can also delete rows of data for campuses that are pairshare\PYZus{}method (\PYZsq{}CA\PYZsq{}, \PYZsq{}DA\PYZsq{}, \PYZsq{}WA\PYZsq{})}
+         \PY{c+c1}{\PYZsh{}there are 91 rows of data we can remove this way.}
+         \PY{c+c1}{\PYZsh{}Pairshare means that their scores were shared with another campus}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{math2018}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{pairshare\PYZus{}method} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{CA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{pairshare\PYZus{}method} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{DA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{pairshare\PYZus{}method} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{WA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{index}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}Now that those lines have been deleted, we can eliminate the pairshare\PYZus{}method }
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{pairshare\PYZus{}method}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
 
-\textbf{I can talk about the stats done with the groupby data here but
-we may want to run some more `simple statistics' here so that we have
-more `baseline' before we jump to the `fancy' stuff.}
+
+    There are many missing values, however, they are not mistakes. The
+values that are missing appear when a population has 10 or fewer
+students represented. When this occurs, the data is not calculated for
+the purpose of this data file and state accountability ratings. As we
+look at the data, you will notice some of the larger category averages
+come out to NaN (Not a Number) because each individual total is 10 or
+fewer. We chose to delete these lines from our dataset because the data
+we need to calculate is not included for these lines.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}63}]:} \PY{c+c1}{\PYZsh{}Delete any row of data where there is no Currstatus data \PYZhy{} meaning that there were less than 10 students that make up that group}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{dropna}\PY{p}{(}\PY{n}{subset}\PY{o}{=}\PY{p}{[}\PY{l+s+s2}{\PYZdq{}}\PY{l+s+s2}{currstatus}\PY{l+s+s2}{\PYZdq{}}\PY{p}{]}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}64}]:} \PY{c+c1}{\PYZsh{}Perform a \PYZsq{}sanity check\PYZsq{} to ensure we took out the data that needed to be reomved}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{info}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+<class 'pandas.core.frame.DataFrame'>
+Int64Index: 97396 entries, 0 to 148932
+Data columns (total 23 columns):
+cds                97396 non-null int64
+rtype              97396 non-null object
+schoolname         86927 non-null object
+districtname       97379 non-null object
+countyname         97379 non-null object
+charter\_flag       9498 non-null object
+coe\_flag           154 non-null object
+dass\_flag          2220 non-null object
+studentgroup       97396 non-null object
+currdenom          97396 non-null int64
+currdenom\_swd      8713 non-null float64
+currstatus         97396 non-null float64
+priordenom         97396 non-null float64
+priordenom\_swd     8662 non-null float64
+priorstatus        93344 non-null float64
+change             93344 non-null float64
+statuslevel        97396 non-null int64
+changelevel        97396 non-null int64
+color              97396 non-null int64
+box                97396 non-null int64
+hscutpoints        13804 non-null object
+curradjustment     8577 non-null float64
+prioradjustment    8902 non-null float64
+dtypes: float64(8), int64(6), object(9)
+memory usage: 17.8+ MB
+
+    \end{Verbatim}
 
     \section{Simple Statistics (10)}\label{simple-statistics-10}
 
@@ -375,62 +960,477 @@ We ran df.describe() on the full dataset to understand the range,
 average, and quartile of the numerical values. Due to the way the data
 is setup, this doesn't give us very much information. From this output,
 however, we can use the `count' to find out the location of most of our
-`NaN'.
+`NaN's and ensure they most were removed or justified during our work on
+data quality above.
 
-\textbf{I can talk about the stats done with the groupby data here but
-we may want to run some more `simple statistics' here so that we have
-more `baseline' before we jump to the `fancy' stuff.}
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}65}]:} \PY{c+c1}{\PYZsh{}Explore simple statistics}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{describe}\PY{p}{(}\PY{p}{)}
+\end{Verbatim}
 
-    \section{Visualize Attributes (15)}\label{visualize-attributes-15}
 
-\textbf{Need more `basic' stuff\ldots{}the fancy stuff all belongs in
-the description of the Joint Attributes} Maybe pull out a few of the
-subpops and then take Charter and Public and run some stuff there.??
-Just an idea. We need to visualize at least 5 attributes.
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}65}]:}                 cds     currdenom  currdenom\_swd    currstatus    priordenom  \textbackslash{}
+         count  9.739600e+04  9.739600e+04    8713.000000  97396.000000  9.739600e+04   
+         mean   2.943364e+13  3.636016e+02     115.593481    -50.096683  3.656199e+02   
+         std    1.395610e+13  1.526794e+04    3886.330054     66.741800  1.535247e+04   
+         min    0.000000e+00  1.100000e+01       1.000000   -298.500000  0.000000e+00   
+         25\%    1.964733e+13  3.100000e+01      24.000000    -90.000000  3.000000e+01   
+         50\%    3.073644e+13  7.700000e+01      36.000000    -48.900000  7.700000e+01   
+         75\%    3.773570e+13  1.990000e+02      55.000000     -6.100000  2.020000e+02   
+         max    5.872770e+13  3.166312e+06  361212.000000    178.900000  3.195814e+06   
+         
+                priordenom\_swd   priorstatus        change   statuslevel   changelevel  \textbackslash{}
+         count     8662.000000  93344.000000  93344.000000  97396.000000  97396.000000   
+         mean       113.694181    -51.016605      1.688386      2.479886      3.028564   
+         std       3812.808540     64.409699     18.125985      1.236779      1.443583   
+         min          1.000000   -289.900000   -192.700000      1.000000      0.000000   
+         25\%         23.000000    -89.100000     -7.500000      2.000000      2.000000   
+         50\%         35.000000    -50.700000      2.000000      2.000000      3.000000   
+         75\%         55.000000     -9.100000     11.400000      3.000000      4.000000   
+         max     353367.000000    169.900000    191.900000      5.000000      5.000000   
+         
+                       color           box  curradjustment  prioradjustment  
+         count  97396.000000  97396.000000     8577.000000      8902.000000  
+         mean       1.491458     83.455686       -1.870613        -1.772551  
+         std        1.641152     89.738640        2.466124         2.289465  
+         min        0.000000      0.000000      -20.500000       -21.750000  
+         25\%        0.000000      0.000000       -2.250000        -2.000000  
+         50\%        1.000000     40.000000       -1.000000        -1.000000  
+         75\%        3.000000    180.000000       -0.500000        -0.500000  
+         max        5.000000    250.000000       -0.250000        -0.250000  
+\end{Verbatim}
+            
+    We also created a pivot table with our 3 columns of interest as we move
+forward. The dataline at '0' is the state totals. It is clear that as a
+state, California is scoring at 51 points below the passing standard,
+however, they have improved their score by 1 point as compared to last
+year.
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}66}]:} \PY{c+c1}{\PYZsh{}Making the above more meaningful by only including attributes of interest}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{pivot\PYZus{}table}\PY{p}{(}\PY{n}{index}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{cds}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{values} \PY{o}{=} \PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{currdenom}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{currstatus}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{change}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{aggfunc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mean}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}66}]:}                    change      currdenom  currstatus
+         cds                                                 
+         0                1.064706  742533.882353  -51.100000
+         1100170000000   13.000000      16.666667 -242.500000
+         1100170112607   13.728571      45.285714 -105.114286
+         1100170123968  -10.425000      59.000000  -88.362500
+         1100170124172   21.900000      66.222222   81.055556
+         1100170125567    4.133333      58.083333  -56.258333
+         1100170130419         NaN      14.000000 -223.300000
+         1100170131581   16.466667      83.111111 -114.722222
+         1100170136101         NaN      37.333333   23.900000
+         1100176001788   12.222222     130.777778  -69.011111
+         1100176002000   43.122222     145.666667  -51.177778
+         1611190000000    1.268750    1017.062500  -23.906250
+         1611190106401   30.475000      23.750000   90.725000
+         1611190111765    3.827273      84.454545  -63.281818
+         1611190119222   10.350000      81.166667  -57.458333
+         1611190122085  -13.207692     133.230769  -25.123077
+         1611190126656   -2.291667      50.833333  -37.083333
+         1611190130229    7.369231      95.307692  -22.553846
+         1611190130609    2.858333      53.083333  -11.408333
+         1611190130625  -21.866667      13.666667 -222.533333
+         1611190131805         NaN      24.000000  -16.514286
+         1611190132142   13.323077     139.384615  -48.600000
+         1611190134304   16.900000      21.500000 -163.875000
+         1611196090005  -10.510000      31.200000   31.100000
+         1611196090013    0.172727      68.727273   25.109091
+         1611196090021    0.654545      81.500000    3.325000
+         1611196090039   -5.600000      56.900000   24.160000
+         1611196090047   12.407692      80.384615  -11.961538
+         1611196090054   -5.884615     214.461538    4.523077
+         1611196090112    8.269231     142.461538  -39.576923
+         {\ldots}                   {\ldots}            {\ldots}         {\ldots}
+         58727365830096  -5.466667      20.500000 -171.650000
+         58727365830138 -10.071429      87.000000  -44.437500
+         58727365835202  19.287500      69.222222 -127.733333
+         58727366056626   2.400000     150.928571  -81.400000
+         58727366056634  -5.036364      97.454545  -39.227273
+         58727366056659  -1.255556     114.700000  -82.590000
+         58727366056667   4.400000      30.800000  -43.860000
+         58727366056675   4.150000      17.750000  -92.500000
+         58727366056683  -4.260000     135.800000  -42.870000
+         58727366056691  16.550000      86.000000  -61.112500
+         58727366056709   2.740000      81.200000  -54.570000
+         58727366056717  13.790000     136.727273  -63.645455
+         58727366056725  -6.160000      33.800000  -33.640000
+         58727366056733  -0.022222      83.700000    0.130000
+         58727366056741   1.510000     110.000000  -73.550000
+         58727366056774   4.230000     115.583333  -25.316667
+         58727366056782   0.516667      34.833333  -76.216667
+         58727366056790   4.561538     235.615385 -116.976923
+         58727366099014  -8.775000      56.250000   14.975000
+         58727440000000  14.225000     225.583333  -26.816667
+         58727440107375  12.012500      69.500000    9.210000
+         58727440112623  15.954545     125.636364  -50.500000
+         58727440114652  26.175000      65.666667  -11.466667
+         58727510000000   7.875000     194.500000  -44.128571
+         58727516056816  14.808333     150.230769  -47.430769
+         58727516056832  -4.250000      62.000000  -28.062500
+         58727516056840 -18.033333      37.166667  -33.366667
+         58727516118806   4.200000      17.000000    1.633333
+         58727690000000 -10.200000      71.142857  -95.800000
+         58727695838305 -11.720000      71.142857  -95.700000
+         
+         [10093 rows x 3 columns]
+\end{Verbatim}
+            
     \section{Explore Joint Attributes
 (15)}\label{explore-joint-attributes-15}
 
 In order to get a better look at the SchoolType and the studentgroup, we
-used groupby to create a group-wise average. When we looked at these
-data, we found some significant differences in the average distance from
-passing between the different school types and student groups.\\
-\textbf{One significant finding.... (mention drop in student in foster
-care in charter schools)}
+created a new attribute, School Type. After doing so, we used groupby to
+create a group-wise average. Once the new column, called "SchoolType"
+was created, the former columns were deleted.
 
-Additionally, we created a cross-tabulation chart to enable us to
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}67}]:} \PY{c+c1}{\PYZsh{}Create a new column, SchoolType; label each row with an appropriate label: state, county, district, public, charter, alternative public, and alternative charter}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{charter\PYZus{}flag} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{dass\PYZus{}flag} \PY{o}{!=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Charter}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{charter\PYZus{}flag} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{dass\PYZus{}flag} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AltCharter}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{n}{math2018}\PY{o}{.}\PY{n}{coe\PYZus{}flag} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{County}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{dass\PYZus{}flag} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{charter\PYZus{}flag} \PY{o}{!=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AltPublic}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{rtype} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{S}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{charter\PYZus{}flag} \PY{o}{!=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{dass\PYZus{}flag} \PY{o}{!=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Public}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{rtype} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{X}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{State}\PY{l+s+s1}{\PYZsq{}}
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{loc}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{rtype} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{D}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{\PYZam{}} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{coe\PYZus{}flag} \PY{o}{!=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{Y}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{District}\PY{l+s+s1}{\PYZsq{}}
+         
+         \PY{c+c1}{\PYZsh{}Delete columns that are no longer necessary now that the school type is combined (rtype, charter\PYZus{}flag, coe\PYZus{}flag, dass\PYZus{}flag)}
+         
+         \PY{n}{math2018}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{rtype}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{charter\PYZus{}flag}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{coe\PYZus{}flag}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{dass\PYZus{}flag}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{,} \PY{n}{axis}\PY{o}{=}\PY{l+m+mi}{1}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+
+
+    As we explored the data further, we found the need to drop a few more
+aspects of our data set. One final step in the initial cleaning process
+was to remove the State, County and District lines of data. Leaving
+these lines of data in the file, leads to duplicates. Every school
+belongs to 3 larger organizations - it's respective district, county,
+and state.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}68}]:} \PY{n}{math2018}\PY{o}{.}\PY{n}{drop}\PY{p}{(}\PY{n}{math2018}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{SchoolType}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{State}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{SchoolType}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{County}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{SchoolType}\PY{o}{==}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{District}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}\PY{o}{.}\PY{n}{index}\PY{p}{,} \PY{n}{inplace}\PY{o}{=}\PY{k+kc}{True}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}69}]:} \PY{c+c1}{\PYZsh{}Group School Type and Student Group and report average distance from \PYZsq{}passing\PYZsq{} for 2018}
+         
+         \PY{n}{math2018\PYZus{}grouped}\PY{o}{=} \PY{n}{math2018}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{n}{by}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{studentgroup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{math2018\PYZus{}AvgDistance} \PY{o}{=} \PY{n}{math2018\PYZus{}grouped}\PY{o}{.}\PY{n}{currstatus}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)} \PY{o}{/} \PY{n}{math2018\PYZus{}grouped}\PY{o}{.}\PY{n}{currstatus}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}
+         \PY{n}{math2018\PYZus{}AvgDistance}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}69}]:} SchoolType  studentgroup
+         AltCharter  AA             -169.726087
+                     AI             -131.742857
+                     ALL            -162.358824
+                     AS              -88.800000
+                     EL             -185.802381
+                     ELO            -210.133333
+                     EO             -154.000000
+                     FI              -30.800000
+                     HI             -169.618056
+                     HOM            -189.800000
+                     MR             -117.754545
+                     RFP            -159.088000
+                     SED            -168.763750
+                     SWD            -201.433333
+                     WH             -131.386957
+         AltPublic   AA             -220.220000
+                     ALL            -199.196992
+                     AS              -37.725000
+                     EL             -222.866923
+                     ELO            -225.562500
+                     EO             -190.538745
+                     FI               37.100000
+                     HI             -206.182935
+                     HOM            -213.363158
+                     MR              -73.733333
+                     RFP            -207.442857
+                     SED            -205.226048
+                     SWD            -196.759091
+                     WH             -159.682540
+         Charter     AA              -76.660156
+                                        {\ldots}    
+                     EL              -66.374906
+                     ELO            -103.180813
+                     EO              -36.011896
+                     FI               18.334906
+                     FOS            -178.900000
+                     HI              -51.828049
+                     HOM             -75.477083
+                     MR               -7.365854
+                     PI              -56.950000
+                     RFP             -29.977321
+                     SED             -55.791594
+                     SWD            -107.658202
+                     WH              -14.017647
+         Public      AA              -78.072563
+                     AI              -81.952318
+                     ALL             -32.908113
+                     AS               35.992458
+                     EL              -57.178947
+                     ELO             -97.511655
+                     EO              -30.015609
+                     FI               15.295572
+                     FOS            -123.250000
+                     HI              -50.756406
+                     HOM             -75.074270
+                     MR                8.097910
+                     PI              -69.436667
+                     RFP             -17.766481
+                     SED             -51.550202
+                     SWD            -113.291341
+                     WH               -9.582096
+         Name: currstatus, Length: 63, dtype: float64
+\end{Verbatim}
+            
+    When we looked at these data, we found some significant differences in
+the average distance from passing between the different school types and
+student groups.
+
+    Additionally, we created a cross-tabulation chart to enable us to
 visualize the information in barplot form. Seeing this visually, enabled
 us to see the stark differences in the average distance from passing in
-each school type. \textbf{Write up more detail about this too}
+each school type.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}70}]:} \PY{c+c1}{\PYZsh{}Average Distance from \PYZsq{}Passing\PYZsq{}}
+         
+         \PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{SchoolType}\PY{p}{,} \PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup}\PY{p}{,} \PY{n}{values} \PY{o}{=} \PY{n}{math2018}\PY{o}{.}\PY{n}{currstatus}\PY{p}{,} \PY{n}{aggfunc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mean}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}70}]:} studentgroup      AA      AI     ALL     AS      EL     ELO      EO     FI  \textbackslash{}
+         SchoolType                                                                   
+         AltCharter   -169.73 -131.74 -162.36 -88.80 -185.80 -210.13 -154.00 -30.80   
+         AltPublic    -220.22     NaN -199.20 -37.72 -222.87 -225.56 -190.54  37.10   
+         Charter       -76.66 -102.71  -40.01  39.17  -66.37 -103.18  -36.01  18.33   
+         Public        -78.07  -81.95  -32.91  35.99  -57.18  -97.51  -30.02  15.30   
+         
+         studentgroup     FOS      HI     HOM      MR     PI     RFP     SED     SWD  \textbackslash{}
+         SchoolType                                                                    
+         AltCharter       NaN -169.62 -189.80 -117.75    NaN -159.09 -168.76 -201.43   
+         AltPublic        NaN -206.18 -213.36  -73.73    NaN -207.44 -205.23 -196.76   
+         Charter      -178.90  -51.83  -75.48   -7.37 -56.95  -29.98  -55.79 -107.66   
+         Public       -123.25  -50.76  -75.07    8.10 -69.44  -17.77  -51.55 -113.29   
+         
+         studentgroup      WH  
+         SchoolType            
+         AltCharter   -131.39  
+         AltPublic    -159.68  
+         Charter       -14.02  
+         Public         -9.58  
+\end{Verbatim}
+            
+    \section{Visualize Attributes (15)}\label{visualize-attributes-15}
+
+We found that the best way, initially to visualize the data was to first
+look at the average distance from passing, as caluclated through an
+aggregate function.
+
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}71}]:} \PY{c+c1}{\PYZsh{}Group School Type and Student Group and report average distance from \PYZsq{}passing\PYZsq{} for 2018}
+         
+         \PY{n}{math2018\PYZus{}grouped}\PY{o}{=} \PY{n}{math2018}\PY{o}{.}\PY{n}{groupby}\PY{p}{(}\PY{n}{by}\PY{o}{=}\PY{p}{[}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SchoolType}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{studentgroup}\PY{l+s+s1}{\PYZsq{}}\PY{p}{]}\PY{p}{)}
+         \PY{n}{math2018\PYZus{}AvgDistance} \PY{o}{=} \PY{n}{math2018\PYZus{}grouped}\PY{o}{.}\PY{n}{currstatus}\PY{o}{.}\PY{n}{sum}\PY{p}{(}\PY{p}{)} \PY{o}{/} \PY{n}{math2018\PYZus{}grouped}\PY{o}{.}\PY{n}{currstatus}\PY{o}{.}\PY{n}{count}\PY{p}{(}\PY{p}{)}
+         \PY{n}{math2018\PYZus{}AvgDistance}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}71}]:} SchoolType  studentgroup
+         AltCharter  AA             -169.726087
+                     AI             -131.742857
+                     ALL            -162.358824
+                     AS              -88.800000
+                     EL             -185.802381
+                     ELO            -210.133333
+                     EO             -154.000000
+                     FI              -30.800000
+                     HI             -169.618056
+                     HOM            -189.800000
+                     MR             -117.754545
+                     RFP            -159.088000
+                     SED            -168.763750
+                     SWD            -201.433333
+                     WH             -131.386957
+         AltPublic   AA             -220.220000
+                     ALL            -199.196992
+                     AS              -37.725000
+                     EL             -222.866923
+                     ELO            -225.562500
+                     EO             -190.538745
+                     FI               37.100000
+                     HI             -206.182935
+                     HOM            -213.363158
+                     MR              -73.733333
+                     RFP            -207.442857
+                     SED            -205.226048
+                     SWD            -196.759091
+                     WH             -159.682540
+         Charter     AA              -76.660156
+                                        {\ldots}    
+                     EL              -66.374906
+                     ELO            -103.180813
+                     EO              -36.011896
+                     FI               18.334906
+                     FOS            -178.900000
+                     HI              -51.828049
+                     HOM             -75.477083
+                     MR               -7.365854
+                     PI              -56.950000
+                     RFP             -29.977321
+                     SED             -55.791594
+                     SWD            -107.658202
+                     WH              -14.017647
+         Public      AA              -78.072563
+                     AI              -81.952318
+                     ALL             -32.908113
+                     AS               35.992458
+                     EL              -57.178947
+                     ELO             -97.511655
+                     EO              -30.015609
+                     FI               15.295572
+                     FOS            -123.250000
+                     HI              -50.756406
+                     HOM             -75.074270
+                     MR                8.097910
+                     PI              -69.436667
+                     RFP             -17.766481
+                     SED             -51.550202
+                     SWD            -113.291341
+                     WH               -9.582096
+         Name: currstatus, Length: 63, dtype: float64
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}72}]:} \PY{n}{ax}\PY{o}{=}\PY{n}{math2018\PYZus{}AvgDistance}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{barh}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}
+\end{Verbatim}
+
+
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_28_0.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    In doing so, we realized that though this visual makes it easy to see
+that there is great discrepancey between differen student groups and
+school types, the data is not very 'human readable' (For further
+discovery, visit Exception Work below).
 
     \section{Explore Attributes and Class
 (10)}\label{explore-attributes-and-class-10}
 
-\textbf{Are we supposed to expand what we noticed above? How is this
-different than the two sections above?}
-
     \section{New Features (5)}\label{new-features-5}
 
-The data is presented in such a way that made comparing different school
-types difficult. There are various columns with a 'Y' or blank entry,
-each based on the data being from either a Charter School, County
-Entity, or an Alternative School (3 separate columns). Additionally,
-there is another column that tells us if the data is from either state,
-district/LEA, or school (1 column). In order to get one label for each
-line of data based on this data, a new feature was created called
-SchoolType. The options created based on the 4 columns mentioned above
-are Public, Charter, AltPublic, AltCharter, District, County, and State.
+As mentioned above, the data is presented in such a way that made
+comparing different school types difficult. There are various columns
+with a 'Y' or blank entry, each based on the data being from either a
+Charter School, County Entity, or an Alternative School (3 separate
+columns). Additionally, there is another column that tells us if the
+data is from either state, district/LEA, or school (1 column). In order
+to get one label for each line of data based on this data, a new feature
+was created called SchoolType. The New feature created was,
+"SchoolType". Based on the 4 columns mentioned above, SchoolType
+attributes are Public, Charter, AltPublic, AltCharter, District, County,
+and State. (see code from Explore Attributes)
 
     \section{Exceptional Work (10)}\label{exceptional-work-10}
 
-\textbf{This isn't really 'additional analyses' because it's the same
-analysis on a smaller subset.... may need to dig a little deeper here.}
 In order to better visualize the information from the student groups
 column, we split the data into two different groupings. One grouping is
 all race/ethnicity categories. The other grouping is all of the various
 special programs that are measured. The "ALL" category was left out as
-it is simply the average of the averages all together.
+it is simply the average of the averages all together. The data below
+represent the average distance from passing for each student group and
+school type.
 
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}73}]:} \PY{c+c1}{\PYZsh{}Create an Ethnicity/Race Subgroup to compare like data.}
+         
+         \PY{n}{math2018ETH}\PY{o}{=}\PY{p}{(}\PY{n}{math2018}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AA}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AI}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{AS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FI}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HI}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{PI}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{WH}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{MR}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}Create a smaller cross table with just the eth/race columns}
+         
+         \PY{n}{math2018\PYZus{}AvgDistETH}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{math2018ETH}\PY{o}{.}\PY{n}{SchoolType}\PY{p}{,} \PY{n}{math2018ETH}\PY{o}{.}\PY{n}{studentgroup}\PY{p}{,} \PY{n}{values} \PY{o}{=} \PY{n}{math2018ETH}\PY{o}{.}\PY{n}{currstatus}\PY{p}{,} \PY{n}{aggfunc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mean}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+         \PY{n}{math2018\PYZus{}AvgDistETH}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}73}]:} studentgroup      AA      AI     AS     FI      HI      MR     PI      WH
+         SchoolType                                                               
+         AltCharter   -169.73 -131.74 -88.80 -30.80 -169.62 -117.75    NaN -131.39
+         AltPublic    -220.22     NaN -37.72  37.10 -206.18  -73.73    NaN -159.68
+         Charter       -76.66 -102.71  39.17  18.33  -51.83   -7.37 -56.95  -14.02
+         Public        -78.07  -81.95  35.99  15.30  -50.76    8.10 -69.44   -9.58
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}74}]:} \PY{c+c1}{\PYZsh{}Use it to create bar chart to show smaller set of data (Eth/race)}
+         
+         \PY{n}{math2018\PYZus{}AvgDistETH}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bar}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,}\PY{l+m+mi}{18}\PY{p}{)}\PY{p}{,} \PY{n}{stacked}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}74}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2d8067b7fd0>
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_34_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}75}]:} \PY{c+c1}{\PYZsh{}Create an \PYZsq{}programs\PYZsq{} Subgroup to compare like data.}
+         
+         \PY{n}{math2018PROG}\PY{o}{=}\PY{p}{(}\PY{n}{math2018}\PY{p}{[}\PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{EL}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)} \PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{ELO}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{RFP}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{EO}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SED}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{SWD}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{FOS}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{|} \PY{p}{(}\PY{n}{math2018}\PY{o}{.}\PY{n}{studentgroup} \PY{o}{==} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{HOM}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{p}{]}\PY{p}{)}
+         
+         \PY{c+c1}{\PYZsh{}Create a smaller cross table with just the Programs columns}
+         
+         \PY{n}{math2018\PYZus{}AvgDistPROG}\PY{o}{=}\PY{n}{pd}\PY{o}{.}\PY{n}{crosstab}\PY{p}{(}\PY{n}{math2018PROG}\PY{o}{.}\PY{n}{SchoolType}\PY{p}{,} \PY{n}{math2018PROG}\PY{o}{.}\PY{n}{studentgroup}\PY{p}{,} \PY{n}{values} \PY{o}{=} \PY{n}{math2018PROG}\PY{o}{.}\PY{n}{currstatus}\PY{p}{,} \PY{n}{aggfunc}\PY{o}{=}\PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{mean}\PY{l+s+s1}{\PYZsq{}}\PY{p}{)}\PY{o}{.}\PY{n}{round}\PY{p}{(}\PY{l+m+mi}{2}\PY{p}{)}
+         \PY{n}{math2018\PYZus{}AvgDistPROG}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}75}]:} studentgroup      EL     ELO      EO     FOS     HOM     RFP     SED     SWD
+         SchoolType                                                                  
+         AltCharter   -185.80 -210.13 -154.00     NaN -189.80 -159.09 -168.76 -201.43
+         AltPublic    -222.87 -225.56 -190.54     NaN -213.36 -207.44 -205.23 -196.76
+         Charter       -66.37 -103.18  -36.01 -178.90  -75.48  -29.98  -55.79 -107.66
+         Public        -57.18  -97.51  -30.02 -123.25  -75.07  -17.77  -51.55 -113.29
+\end{Verbatim}
+            
+    \begin{Verbatim}[commandchars=\\\{\}]
+{\color{incolor}In [{\color{incolor}76}]:} \PY{c+c1}{\PYZsh{}use it to create bar chart to show smaller set of data (Eth/race)}
+         
+         \PY{n}{math2018\PYZus{}AvgDistPROG}\PY{o}{.}\PY{n}{plot}\PY{p}{(}\PY{n}{kind} \PY{o}{=} \PY{l+s+s1}{\PYZsq{}}\PY{l+s+s1}{bar}\PY{l+s+s1}{\PYZsq{}}\PY{p}{,} \PY{n}{figsize}\PY{o}{=}\PY{p}{(}\PY{l+m+mi}{18}\PY{p}{,}\PY{l+m+mi}{18}\PY{p}{)}\PY{p}{,} \PY{n}{stacked}\PY{o}{=}\PY{k+kc}{False}\PY{p}{)}
+\end{Verbatim}
+
+
+\begin{Verbatim}[commandchars=\\\{\}]
+{\color{outcolor}Out[{\color{outcolor}76}]:} <matplotlib.axes.\_subplots.AxesSubplot at 0x2d8067fda90>
+\end{Verbatim}
+            
+    \begin{center}
+    \adjustimage{max size={0.9\linewidth}{0.9\paperheight}}{output_36_1.png}
+    \end{center}
+    { \hspace*{\fill} \\}
+    
 
     % Add a bibliography block to the postdoc
     
