@@ -11775,13 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Lab-One-Visualization-and-Data-Preprocessing">Lab One Visualization and Data Preprocessing<a class="anchor-link" href="#Lab-One-Visualization-and-Data-Preprocessing">&#182;</a></h1><ul>
-<li>Ho, Andy</li>
-<li>Nguyen, An</li>
-<li>Pafford, Jodi</li>
-<li>Wheelis, Tori</li>
-</ul>
-
+<h1 id="Lab-One-Visualization-and-Data-Preprocessing"><center>Lab One Visualization and Data Preprocessing</center><a class="anchor-link" href="#Lab-One-Visualization-and-Data-Preprocessing">&#182;</a></h1><center><font size = "4"> 2017-2018 California Department of Education Mathmematics Achievement</font></center><h5 id="Create-by-An-Nguyen,-Andy-Ho,-Jodi-Pafford,-Tori-Wheelis"><center>Create by An Nguyen, Andy Ho, Jodi Pafford, Tori Wheelis</center><a class="anchor-link" href="#Create-by-An-Nguyen,-Andy-Ho,-Jodi-Pafford,-Tori-Wheelis">&#182;</a></h5><center> January 25, 2019</center>
 </div>
 </div>
 </div>
@@ -11789,18 +11783,18 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Business-Understanding-(10)">Business Understanding (10)<a class="anchor-link" href="#Business-Understanding-(10)">&#182;</a></h1><p>This dataset contains information from schools within the California Department of Education. It specifically addresses school progress on standardized tests in Mathematics during the 2017-2018 school year. In part, the data will be used to support Local Education Agencies (LEA) in identifying strengths, weaknesses, and areas for improvement; assist in determining whether LEAs are eligible for assistance; and assist the SSPI in determining whether LEAs are eligible for more intensive state support/intervention. The school accountability system in California has 10 priorities. This dataset looks at one part of the 4th priority: Student Achievement. The dataset used in this analysis pertains specifically to its Mathematics curriculum and the progress made from 2017 school year and the 2018 school year.<br>
-   From this dataset, we will look at how the state, each county, LEA, and campus increased or decreased their average distance above or below the passing standard score. This dataset also allows us to look at different programs (English Learner, Socioeconomic Disadvantaged, Students with Disabilities, Foster Youth, Homeless Youth) and race/ethnicities (Black/African American, American Indian or Alaska Native, Asian, Filipino, Hispanic, Pacific Islander, White, Multiples Races/Two or More).  This project will address what difference in performance progress were seen between public and charter schools and its respective population subgroups, as described above. The outcome from this will give insight to California on the performance progress in order to help lawmakers better fund schools.</p>
+<h2 id="Business-Understanding">Business Understanding<a class="anchor-link" href="#Business-Understanding">&#182;</a></h2><p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;This dataset contains information from schools within the California Department of Education. It specifically addresses school progress on standardized tests in Mathematics during the 2017-2018 school year. In part, the data will be used to support Local Education Agencies (LEA) in identifying strengths, weaknesses, and areas for improvement; assist in determining whether LEAs are eligible for assistance; and assist the SSPI in determining whether LEAs are eligible for more intensive state support/intervention. The school accountability system in California has 10 priorities. This dataset looks at one part of the 4th priority: Student Achievement. The dataset used in this analysis pertains specifically to its Mathematics curriculum and the progress made from 2017 school year and the 2018 school year.&lt;/p&gt;</p>
+<p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;From this dataset, we will look at how the state, each county, LEA, and campus increased or decreased their average distance above or below the passing standard score. This dataset also allows us to look at different programs (English Learner, Socioeconomic Disadvantaged, Students with Disabilities, Foster Youth, Homeless Youth) and race/ethnicities (Black/African American, American Indian or Alaska Native, Asian, Filipino, Hispanic, Pacific Islander, White, Multiples Races/Two or More).  This project will address what difference in performance progress were seen between public and charter schools and its respective population subgroups, as described above. The outcome from this will provide further insights to California on the following:&lt;/p&gt;</p>
 <ul>
 <li>Is one subgroup out/underperforming another? </li>
 <li>How do districts compare performance wise? County Offices of Education? What about with subgroups?</li>
 <li>Charter v. Traditional schools? What about with subgroups? </li>
 <li>Any impacts/trends by # of kids tested?</li>
 </ul>
-<p>Data is important because</p>
+<p>Data is important because:</p>
 <ul>
-<li>It tells you how students performed on the California Assessment of Student Performance and Progress (CAASPP), california's state wide test</li>
-<li>It tells you what achievement/performance gaps exist - so policy can be made to address these issues</li>
+<li>It tells you how students performed on the California Assessment of Student Performance and Progress (CAASPP), california's state wide test.</li>
+<li>It tells you what achievement/performance gaps exist - so policy can be made to address these issues.</li>
 </ul>
 
 </div>
@@ -11810,166 +11804,296 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-Meaning-Type-(10)">Data Meaning Type (10)<a class="anchor-link" href="#Data-Meaning-Type-(10)">&#182;</a></h1><ul>
-<li>cds (int): The 14-digit County-District-School code is the official, unique identification of a school within California. The first two digits identify the county, the next five digits identify the school district, and the last seven digits identify the school.</li>
-<li>rtype (char): Identify the record's type; <ul>
-<li>S=School Record</li>
-<li>D=District/LEA Record</li>
-<li>X=State Record. </li>
-</ul>
-</li>
-<li>schoolname (str): Name of school the record belongs to.</li>
-<li>districtname (str): Name of school distritct the record belongs to.</li>
-<li>countyname (str): Name of county the record belongs to.</li>
-<li>charter_flag (char): Indicate if record belongs to a charter school; <ul>
-<li>Y=Yes </li>
-<li>blank</li>
-</ul>
-</li>
-<li>coe_flag (char): Indicate if record belongs to a County Office of Education facility<ul>
-<li>Y=Yes </li>
-<li>blank</li>
-</ul>
-</li>
-<li>dass_flag (char): Indicate if record belongs to a school with a Dashboard Alternative School Status (DASS)<ul>
-<li>Y=Yes</li>
-<li>blank</li>
-</ul>
-</li>
-<li>studentgroup (str): Name of student group the record reflects;<ul>
-<li>ALL=All Students</li>
-<li>AA=Black/African American</li>
-<li>AI=American Indian or Alaska Native</li>
-<li>AS=Asian</li>
-<li>FI=Filipino</li>
-<li>HI=Hispanic</li>
-<li>PI=Pacific Islander</li>
-<li>WH=White</li>
-<li>MR=Multiple Races/Two or More</li>
-<li>EL=English Learner</li>
-<li>ELO=English Learners Only</li>
-<li>RFP=RFEPs Only</li>
-<li>EO=English Only</li>
-<li>SED=Socioeconomically Disadvantaged</li>
-<li>SWD=Students with Disabilities</li>
-<li>FOS=Foster Youth</li>
-<li>HOM=Homeless Youth</li>
-</ul>
-</li>
-<li>currdenom (int): Number of valid students of the current year who took the Smarter Balanced summative assessment in Math.  For SWD student group only, students who have a current disability code in CALPADS or was a student with disability who exited a special education program and did not receive services for up to two years (i.e., exited after April 15, 2016). These students’ scores are used to calculate the Distance from Standard.</li>
-<li>currdenom_swd (int): number of valid students of the current year with disabilities who took the Smarter Balanced summative assessment in Math and have a current disability code in CALPADS. These students and are included in the count to determine whether the SWD student group is assigned a performance level. (Note: This count of students does not include those who exited a special education program within the past two years (i.e., exited program after April 15, 2016).</li>
-<li>currstatus (float): Average distance from Standard of students from the current year who took the Smarter Balanced summative assessment in Math.</li>
-<li>priordenom (float): Number of valid students of the previous year who took the Smarter Balanced summative assessment in Math.  For SWD student group only, students who have a current disability code in CALPADS or was a student with disability who exited a special education program and did not receive services for up to two years (i.e., exited after April 15, 2016). These students’ scores are used to calculate the Distance from Standard.</li>
-<li>priordenom_swd (float): number of valid students of the previous year with disabilities who took the Smarter Balanced summative assessment in Math and have a current disability code in CALPADS. These students and are included in the count to determine whether the SWD student group is assigned a performance level. (Note: This count of students does not include those who exited a special education program within the past two years (i.e., exited program after April 15, 2016).</li>
-<li>priorstatus (float): Average distance from Standard of students from the previous year who took the Smarter Balanced summative assessment in Math.</li>
-<li>change (float): Difference between current status and prior status.</li>
-<li>statuslevel (int): The LEA, school, or student group’s current year a Status level for mathematics.<ul>
-<li>1=Very Low</li>
-<li>2=Low</li>
-<li>3=Medium</li>
-<li>4=High</li>
-<li>5=Very High</li>
-<li>0=No Data</li>
-</ul>
-</li>
-<li>changelevel (int):  The difference in results from the current year to the prior year.<ul>
-<li>1=Decreased Significantly</li>
-<li>2=Decreased</li>
-<li>3=Maintained</li>
-<li>4=Increased</li>
-<li>5=Increased Significantly</li>
-<li>0=No Data</li>
-</ul>
-</li>
-<li>color (int): The combination of the five Status levels and the five Change levels, with red being the lowest and blue the highest in performance.<ul>
-<li>1=Red</li>
-<li>2=Orange</li>
-<li>3=Yellow</li>
-<li>4=Green</li>
-<li>5=Blue</li>
-<li>0=No Color</li>
-</ul>
-</li>
-<li>box (int): If a color was assigned, this value represents the specific 5x5 grid location.<ul>
-<li>10=Very High, Declined Significantly </li>
-<li>20=Very High, Declined</li>
-<li>30=Very High, Mantained</li>
-<li>40=Very High, Increased</li>
-<li>50=Very High, Increased Significantly</li>
-<li>60=High, Declined Significantly</li>
-<li>70=High, Declined</li>
-<li>80=High, Mantained</li>
-<li>90=High, Increased</li>
-<li>100=High, Increased Significantly</li>
-<li>110=Medium, Declined Significantly</li>
-<li>120=Medium, Declined</li>
-<li>130=Medium, Mantained</li>
-<li>140=Medium, Increased</li>
-<li>150=Medium, Increased Significantly</li>
-<li>160=Low, Declined Significantly</li>
-<li>170=Low, Declined</li>
-<li>180=Low, Mantained</li>
-<li>190=Low, Increased</li>
-<li>200=Low, Increased Significantly</li>
-<li>210=Very Low, Declined Significantly</li>
-<li>220=Very Low, Declined</li>
-<li>230=Very Low, Mantained</li>
-<li>240=Very Low, Increased</li>
-<li>250=Very Low, Increased Significantly</li>
-<li>0=No Color</li>
-</ul>
-</li>
-<li>hscutpoints (char): Indicates if the school or district is held to the High School cut points.<ul>
-<li>Y=Yes </li>
-<li>blank</li>
-</ul>
-</li>
-<li>curradjustment (float): The number of points removed from the current year status due to the participation rate being below 95%.</li>
-<li>prioradjustment (float): The number of points removed from the previous year status due to the participation rate being below 95%.</li>
-<li>pairshare_method (str):This identifies schools that do not serve grade 3 or higher and were assigned a district average, county average, or weighted school average of up to three receiving schools for Distance From Standard.<ul>
-<li>DA=District Average</li>
-<li>CA=County Average</li>
-<li>WA=Weighted Average</li>
-<li>blank</li>
-</ul>
-</li>
-<li>caa_denom (float): Number of valid students of the current year who took the California Alternate Assessment in Math.<ul>
-<li>Only populated for records where studentgroup=ALL.  If the school or district did not test any students under the California Alternate Assessment, this value will be zero.</li>
-</ul>
-</li>
-<li>caa_level1_num (float): Number of valid students of the current year who took the California Alternate Assessment in Math and scored achievement level 1.<ul>
-<li>Only populated for records where studentgroup=ALL and caa_denom&gt;=11.</li>
-</ul>
-</li>
-<li>caa_level1_pct (float): Percent of valid students of the current year who took the California Alternate Assessment in Math and scored achievement level 1.<ul>
-<li>Only populated for records where studentgroup=ALL and caa_denom&gt;=11.</li>
-</ul>
-</li>
-<li>caa_level2_num (float): Number of valid students of the current year who took the California Alternate Assessment in Math and scored achievement level 2.<ul>
-<li>Only populated for records where studentgroup=ALL and caa_denom&gt;=11.</li>
-</ul>
-</li>
-<li>caa_level2_pct (float): Percent of valid students of the current year who took the California Alternate Assessment in Math and scored achievement level 2.<ul>
-<li>Only populated for records where studentgroup=ALL and caa_denom&gt;=11.</li>
-</ul>
-</li>
-<li>caa_level3_num (float): Number of valid students of the current year who took the California Alternate Assessment in Math and scored achievement level 3.<ul>
-<li>Only populated for records where studentgroup=ALL and caa_denom&gt;=11.</li>
-</ul>
-</li>
-<li>caa_level3_pct (float): Percent of valid students of the current year who took the California Alternate Assessment in Math and scored achievement level 3.<ul>
-<li>Only populated for records where studentgroup=ALL and caa_denom&gt;=11.</li>
-</ul>
-</li>
-<li>ReportingYear (int): Reporting year, 2018.</li>
-</ul>
-
+<h2 id="Data-Understanding">Data Understanding<a class="anchor-link" href="#Data-Understanding">&#182;</a></h2><h3 id="Data-Meaning">Data Meaning<a class="anchor-link" href="#Data-Meaning">&#182;</a></h3><p>Codebook can be found at <a href="https://www.cde.ca.gov/ta/ac/cm/math18.asp">https://www.cde.ca.gov/ta/ac/cm/math18.asp</a></p>
+<div class="table-responsive"><table class="table table-bordered">
+  <tr>
+    <th>Field #</th>
+    <th>Field Name</th>
+    <th>Description</th>
+    <th>Acceptable Values</th>
+  </tr>
+  <tr>
+    <td>1</td>
+    <td>cds</td>
+    <td>CDS Code</td>
+    <td>Text</td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>rtype</td>
+    <td>Record Type</td>
+    <td><p>S=School Record<br>
+      D=District/LEA Record<br>
+      X=State Record
+      <br>
+    </p></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>schoolname</td>
+    <td>School Name</td>
+    <td>Text</td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>districtname</td>
+    <td>District Name</td>
+    <td>Text</td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>countyname</td>
+    <td>County Name</td>
+    <td>Text</td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>charter_flag</td>
+    <td>Charter School Flag</td>
+    <td>Y or blank</td>
+  </tr>
+  <tr>
+    <td>7</td>
+    <td>coe_flag</td>
+    <td>County Office of Education Flag</td>
+    <td>Y or blank</td>
+  </tr>
+  <tr>
+    <td>8</td>
+    <td>dass_flag</td>
+    <td>Dashboard Alternative School Status (DASS) School Flag</td>
+    <td>Y or blank</td>
+  </tr>
+  <tr>
+    <td>9</td>
+    <td>studentgroup</td>
+    <td>Student Group</td>
+    <td><p>ALL=All Students<br>
+      AA=Black/African American<br>
+      AI=American Indian or Alaska Native<br>
+      AS=Asian<br>
+      FI=Filipino<br>
+      HI=Hispanic<br>
+      PI=Pacific Islander<br>
+      WH=White<br>
+      MR=Multiple Races/Two or More<br>
+      EL=English Learner<br>
+      ELO=English Learners Only<br>
+      RFP=RFEPs Only <br>
+      EO=English Only<br>
+      SED=Socioeconomically Disadvantaged<br>
+      SWD=Students with Disabilities<br>
+      FOS=Foster Youth<br>
+      HOM=Homeless Youth</p></td>
+  </tr>
+  <tr>
+    <td>10</td>
+    <td>currdenom</td>
+    <td><p>Current year number of valid students who took the Smarter Balanced summative assessment in Math</p>
+      <p>For SWD student group only, students who have a  current disability code in CALPADS or was a student with disability who exited  a special education program and did not receive services for up to two years  (i.e., exited after April 15, 2016). These students&rsquo; scores are used to calculate  the Distance from Standard. </p></td>
+    <td>Integer</td>
+  </tr>
+  <tr>
+    <td>11</td>
+    <td>currdenom_swd</td>
+    <td> Current  year number of valid students with disabilities who took the Smarter Balanced  summative assessment in Math and have a current disability code in CALPADS. These  students <s>and </s>are included in the count  to determine whether the SWD student group is assigned a performance level. (Note: This count of  students does not include those who exited a special education program within  the past two years (i.e., exited program after April 15, 2016).</td>
+    <td>Integer</td>
+  </tr>
+  <tr>
+    <td>12</td>
+    <td>currstatus</td>
+    <td><p>Current Status - Average distance from Standard of students who took the Smarter Balanced summative assessment in Math<br>
+      <br>
+      (Rounded after calculations. For further information regarding this data field refer to the CA School Dashboard Technical Guide.)</p></td>
+    <td>Decimal</td>
+  </tr>
+  <tr>
+    <td>13</td>
+    <td>priordenom</td>
+    <td>Prior year number of valid students who took the Smarter Balanced summative assessment in Math</td>
+    <td>Integer</td>
+  </tr>
+  <tr>
+    <td>14</td>
+    <td>priordenom_swd</td>
+    <td>Prior year number of valid students with disabilities who took the Smarter Balanced summative assessment in Math and are included in the count to determine whether the SWD student group is assigned a performance level</td>
+    <td>Integer</td>
+  </tr>
+  <tr>
+    <td>15</td>
+    <td>priorstatus</td>
+    <td><p>Prior Status - Average distance from Standard of students who took the Smarter Balanced summative assessment in Math<br>
+      <br>
+      (Rounded after calculations. For further information regarding this data field refer to the CA School Dashboard Technical Guide.)</p></td>
+    <td>Decimal</td>
+  </tr>
+  <tr>
+    <td>16</td>
+    <td>change</td>
+    <td>CHANGE - Difference between current status and prior status<br>
+      <br>
+      (Rounded after calculations. For further information regarding this data field refer to the CA School Dashboard Technical Guide.)</td>
+    <td>Decimal</td>
+  </tr>
+  <tr>
+    <td>17</td>
+    <td>statuslevel</td>
+    <td><p>Status Level<br>
+      <br>
+      (Determined after calculations and rounding. For further information regarding this data field refer to the CA School Dashboard Technical Guide.)</p></td>
+    <td>1=Very Low<br>
+      2=Low<br>
+      3=Medium<br>
+      4=High<br>
+      5=Very High<br>
+      0=No Data</td>
+  </tr>
+  <tr>
+    <td>18</td>
+    <td>changelevel</td>
+    <td><p>Change Level<br>
+      <br>
+      (Determined after calculations and rounding. For further information regarding this data field refer to the CA School Dashboard Technical Guide.)</p></td>
+    <td>1=Decreased Significantly<br>
+      2=Decreased<br>
+      3=Maintained<br>
+      4=Increased<br>
+      5=Increased Significantly<br>
+    0=No Data</td>
+  </tr>
+  <tr>
+    <td>19</td>
+    <td>color</td>
+    <td>Color</td>
+    <td>1=Red<br>
+      2=Orange<br>
+      3=Yellow<br>
+      4=Green<br>
+      5=Blue<br>
+      0=No Color</td>
+  </tr>
+  <tr>
+    <td>20</td>
+    <td>box</td>
+    <td>If a color was assigned, this value represents the specific 5x5 grid location</td>
+    <td>10=Very High, Declined Significantly<br>
+      20=Very High, Declined<br>
+      30=Very High, Mantained<br>
+      40=Very High, Increased<br>
+      50=Very High, Increased Significantly<br>
+      60=High, Declined Significantly<br>
+      70=High, Declined<br>
+      80=High, Mantained<br>
+      90=High, Increased<br>
+      100=High, Increased Significantly<br>
+      110=Medium, Declined Significantly<br>
+      120=Medium, Declined<br>
+      130=Medium, Mantained<br>
+      140=Medium, Increased<br>
+      150=Medium, Increased Significantly<br>
+      160=Low, Declined Significantly<br>
+      170=Low, Declined<br>
+      180=Low, Mantained<br>
+      190=Low, Increased<br>
+      200=Low, Increased Significantly<br>
+      210=Very Low, Declined Significantly<br>
+      220=Very Low, Declined<br>
+      230=Very Low, Mantained<br>
+      240=Very Low, Increased<br>
+      250=Very Low, Increased Significantly<br>
+      0=No Color</td>
+  </tr>
+  <tr>
+    <td>21</td>
+    <td>hscutpoints</td>
+    <td>Indicates if the school or district is held to the High School cut points</td>
+    <td>Y or blank</td>
+  </tr>
+  <tr>
+    <td>22</td>
+    <td>curradjustment</td>
+    <td>The number of points removed from the current year status due to the participation rate being below 95%</td>
+    <td>Decimal</td>
+  </tr>
+  <tr>
+    <td>23</td>
+    <td>prioradjustment</td>
+    <td>The number of points removed from the prior year status due to the participation rate being below 95%</td>
+    <td>Decimal</td>
+  </tr>
+  <tr>
+    <td>24</td>
+    <td>pairshare_method</td>
+    <td>Pair and Share School Method. This identifies schools that do not serve grade 3 or higher and were assigned a district average, county average, or weighted school average of up to three receiving schools for Distance From Standard.</td>
+    <td><p>DA=District Average,<br>
+      CA=County Average,<br>
+      WA=Weighted Average,      <br>
+      or Blank
+    </p></td>
+  </tr>
+  <tr>
+    <td>25</td>
+    <td>caa_denom</td>
+    <td><p>Current year number of valid students who took the California Alternate Assessment in Math</p>
+      <p>Only populated for records where studentgroup=ALL</p>
+      <p>If the school or district did not test any students under the California Alternate Assessment, this value will be zero</p></td>
+    <td>Integer</td>
+  </tr>
+  <tr>
+    <td>26</td>
+    <td>caa_level1_num</td>
+    <td><p>Current year number of valid students who took the California Alternate Assessment in Math and scored achievement level 1</p>
+      <p>Only populated for records where studentgroup=ALL and caa_denom&gt;=11</p></td>
+    <td>Integer</td>
+  </tr>
+  <tr>
+    <td>27</td>
+    <td>caa_level1_pct</td>
+    <td><p>Current year percent of valid students who took the California Alternate Assessment in Math and scored achievement level 1</p>
+      <p>Only populated for records where studentgroup=ALL and caa_denom&gt;=11</p></td>
+    <td>Decimal</td>
+  </tr>
+  <tr>
+    <td>28</td>
+    <td>caa_level2_num</td>
+    <td><p>Current year number of valid students who took the California Alternate Assessment in Math and scored achievement level 2</p>
+      <p>Only populated for records where studentgroup=ALL and caa_denom&gt;=11</p></td>
+    <td>Integer</td>
+  </tr>
+  <tr>
+    <td>29</td>
+    <td>caa_level2_pct</td>
+    <td><p>Current year percent of valid students who took the California Alternate Assessment in Math and scored achievement level 2</p>
+      <p>Only populated for records where studentgroup=ALL and caa_denom&gt;=11</p></td>
+    <td>Decimal</td>
+  </tr>
+  <tr>
+    <td>30</td>
+    <td>caa_level3_num</td>
+    <td><p>Current year percent of valid students who took the California Alternate Assessment in Math and scored achievement level 3</p>
+      <p>Only populated for records where studentgroup=ALL and caa_denom&gt;=11</p></td>
+    <td>Integer</td>
+  </tr>
+  <tr>
+    <td>31</td>
+    <td>caa_level3_pct</td>
+    <td><p>Current year percent of valid students who took the California Alternate Assessment in Math and scored achievement level 3</p>
+      <p>Only populated for records where studentgroup=ALL and caa_denom&gt;=11</p></td>
+    <td>Decimal</td>
+  </tr>
+  <tr>
+    <td>32</td>
+    <td>reportingyear</td>
+    <td>Reporting year</td>
+    <td>Text</td>
+  </tr>
+</table></div>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -11994,14 +12118,14 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Data-Quality-(15)">Data Quality (15)<a class="anchor-link" href="#Data-Quality-(15)">&#182;</a></h1><p>At first glance, you will notice that the ‘All’ category total in any line is less adding up all the lines for similar campuses.  This is happening because a student may be in several different categories (i.e., a student may be White (WH), in foster care (FOS), be living in a low socio-economic status (SED) and be served by special education (SWD) – student will ‘count’ in 4 of the 16 categories listed). No edits were needed for this phenomenon, we need to be aware of this as we move forward.</p>
+<h2 id="Data-Quality">Data Quality<a class="anchor-link" href="#Data-Quality">&#182;</a></h2><p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;At first glance, you will notice that the ‘All’ category total in any line is less adding up all the lines for similar campuses.  This is happening because a student may be in several different categories (i.e., a student may be White (WH), in foster care (FOS), be living in a low socio-economic status (SED) and be served by special education (SWD) – student will ‘count’ in 4 of the 16 categories listed). No edits were needed for this phenomenon, we need to be aware of this as we move forward.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#View basic info about the data file</span>
@@ -12070,7 +12194,7 @@ memory usage: 36.4+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#View initial findings of the &quot;ALL&quot; cateogry equaly all the other categories from the same campus.</span>
@@ -12088,7 +12212,7 @@ memory usage: 36.4+ MB
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[60]:</div>
+<div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -12499,14 +12623,14 @@ memory usage: 36.4+ MB
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Additionally, there were columns of data that we choose to eliminate from the data altogether.  There were 7 columns at the end of the dataset that give the data for the “California Alternate Assessment”.  This test is usually given to students served by special education who have profound disabilities and are unable to complete the same test as others.  There are approximately 1% of the total population who are included, and the data does not support our current research, therefore, these columns are also deleted.</p>
+<p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;Additionally, there were columns of data that we choose to eliminate from the data altogether.  There were 7 columns at the end of the dataset that give the data for the “California Alternate Assessment”.  This test is usually given to students served by special education who have profound disabilities and are unable to complete the same test as others.  There are approximately 1% of the total population who are included, and the data does not support our current research, therefore, these columns are also deleted.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Delete most of the ending columns that are all about alternate testing: profound disabilities (all the &#39;caa_...&#39; columns)</span>
@@ -12524,14 +12648,14 @@ memory usage: 36.4+ MB
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Next, we found a column of data called “pairshare_method”.  If a campus does not include students of a testing grade level (i.e. PK campuses) or the campus only serves special populations (i.e., mental health hospital), the data is often paired with another campus in the district or charter.  If we kept this data in our dataset, these would be duplicates.  Therefore, the lines of data were deleted and then the column was deleted.</p>
+<p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;Next, we found a column of data called “pairshare_method”.  If a campus does not include students of a testing grade level (i.e. PK campuses) or the campus only serves special populations (i.e., mental health hospital), the data is often paired with another campus in the district or charter.  If we kept this data in our dataset, these would be duplicates.  Therefore, the lines of data were deleted and then the column was deleted.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[62]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#We can also delete rows of data for campuses that are pairshare_method (&#39;CA&#39;, &#39;DA&#39;, &#39;WA&#39;)</span>
@@ -12554,14 +12678,14 @@ memory usage: 36.4+ MB
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>There are many missing values, however, they are not mistakes. The values that are missing appear when a population has 10 or fewer students represented.  When this occurs, the data is not calculated for the purpose of this data file and state accountability ratings. As we look at the data, you will notice some of the larger category averages come out to NaN (Not a Number) because each individual total is 10 or fewer.  We chose to delete these lines from our dataset because the data we need to calculate is not included for these lines.</p>
+<p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;There are many missing values, however, they are not mistakes. The values that are missing appear when a population has 10 or fewer students represented.  When this occurs, the data is not calculated for the purpose of this data file and state accountability ratings. As we look at the data, you will notice some of the larger category averages come out to NaN (Not a Number) because each individual total is 10 or fewer.  We chose to delete these lines from our dataset because the data we need to calculate is not included for these lines.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[63]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Delete any row of data where there is no Currstatus data - meaning that there were less than 10 students that make up that group</span>
@@ -12576,7 +12700,7 @@ memory usage: 36.4+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Perform a &#39;sanity check&#39; to ensure we took out the data that needed to be reomved</span>
@@ -12638,14 +12762,14 @@ memory usage: 17.8+ MB
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Simple-Statistics-(10)">Simple Statistics (10)<a class="anchor-link" href="#Simple-Statistics-(10)">&#182;</a></h1><p>We ran df.describe() on the full dataset to understand the range, average, and quartile of the numerical values.  Due to the way the data is setup, this doesn’t give us very much information.  From this output, however, we can use the ‘count’ to find out the location of most of our ‘NaN’s and ensure they most were removed or justified during our work on data quality above.</p>
+<h2 id="Simple-Statistics">Simple Statistics<a class="anchor-link" href="#Simple-Statistics">&#182;</a></h2><p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;We ran df.describe() on the full dataset to understand the range, average, and quartile of the numerical values.  Due to the way the data is setup, this doesn’t give us very much information.  From this output, however, we can use the ‘count’ to find out the location of most of our ‘NaN’s and ensure they most were removed or justified during our work on data quality above.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Explore simple statistics</span>
@@ -12663,7 +12787,7 @@ memory usage: 17.8+ MB
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[65]:</div>
+<div class="prompt output_prompt">Out[8]:</div>
 
 
 
@@ -12854,14 +12978,14 @@ memory usage: 17.8+ MB
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We also created a pivot table with our 3 columns of interest as we move forward. The dataline at '0' is the state totals.  It is clear that as a state, California is scoring at 51 points below the passing standard, however, they have improved their score by 1 point as compared to last year.</p>
+<p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;We also created a pivot table with our 3 columns of interest as we move forward. The dataline at '0' is the state totals.  It is clear that as a state, California is scoring at 51 points below the passing standard, however, they have improved their score by 1 point as compared to last year.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Making the above more meaningful by only including attributes of interest</span>
@@ -12879,7 +13003,7 @@ memory usage: 17.8+ MB
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[66]:</div>
+<div class="prompt output_prompt">Out[9]:</div>
 
 
 
@@ -13296,14 +13420,14 @@ memory usage: 17.8+ MB
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Explore-Joint-Attributes-(15)">Explore Joint Attributes (15)<a class="anchor-link" href="#Explore-Joint-Attributes-(15)">&#182;</a></h1><p>In order to get a better look at the SchoolType and the studentgroup, we created a new attribute, School Type. After doing so, we used groupby to create a group-wise average. Once the new column, called "SchoolType" was created, the former columns were deleted.</p>
+<h2 id="Explore-Joint-Attributes">Explore Joint Attributes<a class="anchor-link" href="#Explore-Joint-Attributes">&#182;</a></h2><p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;In order to get a better look at the SchoolType and the studentgroup, we created a new attribute, School Type. After doing so, we used groupby to create a group-wise average. Once the new column, called "SchoolType" was created, the former columns were deleted.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Create a new column, SchoolType; label each row with an appropriate label: state, county, district, public, charter, alternative public, and alternative charter</span>
@@ -13330,14 +13454,14 @@ memory usage: 17.8+ MB
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we explored the data further, we found the need to drop a few more aspects of our data set. One final step in the initial cleaning process was to remove the State, County and District lines of data. Leaving these lines of data in the file, leads to duplicates. Every school belongs to 3 larger organizations - it's respective district, county, and state.</p>
+<p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;As we explored the data further, we found the need to drop a few more aspects of our data set. One final step in the initial cleaning process was to remove the State, County and District lines of data. Leaving these lines of data in the file, leads to duplicates. Every school belongs to 3 larger organizations - it's respective district, county, and state.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[68]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">math2018</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">math2018</span><span class="p">[(</span><span class="n">math2018</span><span class="o">.</span><span class="n">SchoolType</span><span class="o">==</span><span class="s1">&#39;State&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">math2018</span><span class="o">.</span><span class="n">SchoolType</span><span class="o">==</span><span class="s1">&#39;County&#39;</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">math2018</span><span class="o">.</span><span class="n">SchoolType</span><span class="o">==</span><span class="s1">&#39;District&#39;</span><span class="p">)]</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13350,7 +13474,7 @@ memory usage: 17.8+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[69]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Group School Type and Student Group and report average distance from &#39;passing&#39; for 2018</span>
@@ -13370,7 +13494,7 @@ memory usage: 17.8+ MB
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[69]:</div>
+<div class="prompt output_prompt">Out[12]:</div>
 
 
 
@@ -13451,23 +13575,14 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>When we looked at these data, we found some significant differences in the average distance from passing between the different school types and student groups.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Additionally, we created a cross-tabulation chart to enable us to visualize the information in barplot form.  Seeing this visually, enabled us to see the stark differences in the average distance from passing in each school type.</p>
+<p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;When we looked at these data, we found some significant differences in the average distance from passing between the different school types and student groups. Additionally, we created a cross-tabulation chart to enable us to visualize the information in barplot form.  Seeing this visually, enabled us to see the stark differences in the average distance from passing in each school type.<p></p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Average Distance from &#39;Passing&#39;</span>
@@ -13485,7 +13600,7 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[70]:</div>
+<div class="prompt output_prompt">Out[13]:</div>
 
 
 
@@ -13643,14 +13758,14 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Visualize-Attributes-(15)">Visualize Attributes (15)<a class="anchor-link" href="#Visualize-Attributes-(15)">&#182;</a></h1><p>We found that the best way, initially to visualize the data was to first look at the average distance from passing, as caluclated through an aggregate function.</p>
+<h2 id="Visualize-Attributes">Visualize Attributes<a class="anchor-link" href="#Visualize-Attributes">&#182;</a></h2><p>We found that the best way, initially to visualize the data was to first look at the average distance from passing, as caluclated through an aggregate function.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[71]:</div>
+<div class="prompt input_prompt">In&nbsp;[14]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Group School Type and Student Group and report average distance from &#39;passing&#39; for 2018</span>
@@ -13670,7 +13785,7 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[71]:</div>
+<div class="prompt output_prompt">Out[14]:</div>
 
 
 
@@ -13747,9 +13862,27 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we looked at these averages, it became apparant that there were not very many data points that averaged above the passing standard. There is also great fluctuation between the student groups, even from within the same school type.  Students who consistantly performed above average were either Asian, Filipino or Multi-racial.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>After viewing this data in a bar chart, below, we realized that though this visual makes it easy to see that there is great discrepancey between differen student groups and school types, the data is not very 'human readable' (For further discovery, visit Exception Work below).  The bars located on the lower part of the chart represent alternative campuses. These campuses, performed significantly lower than the public and charter schools (public is the first 16 lines, charter is the following). Very few student groups averaged a math score that was higher than the passing standard.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[72]:</div>
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">ax</span><span class="o">=</span><span class="n">math2018_AvgDistance</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">kind</span><span class="o">=</span><span class="s1">&#39;barh&#39;</span><span class="p">)</span>
@@ -13782,11 +13915,45 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###Tori visualize point 3, 4 and 5###</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In doing so, we realized that though this visual makes it easy to see that there is great discrepancey between differen student groups and school types, the data is not very 'human readable' (For further discovery, visit Exception Work below).</p>
+<h2 id="Explore-Attributes-and-Class">Explore Attributes and Class<a class="anchor-link" href="#Explore-Attributes-and-Class">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">###Tori&#39;s stuff goes here###</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="New-Features">New Features<a class="anchor-link" href="#New-Features">&#182;</a></h2><p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;As mentioned above, the data is presented in such a way that made comparing different school types difficult. There are various columns with a 'Y' or blank entry, each based on the data being from either a Charter School, County Entity, or an Alternative School (3 separate columns). Additionally, there is another column that tells us if the data is from either state, district/LEA, or school (1 column). In order to get one label for each line of data based on this data, a new feature was created called SchoolType. The New feature created was, "SchoolType".  Based on the 4 columns mentioned above, SchoolType attributes are Public, Charter, AltPublic, AltCharter, District, County, and State. (see code from Explore Attributes)&lt;/p&gt;</p>
 
 </div>
 </div>
@@ -13795,31 +13962,14 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Explore-Attributes-and-Class-(10)">Explore Attributes and Class (10)<a class="anchor-link" href="#Explore-Attributes-and-Class-(10)">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="New-Features-(5)">New Features (5)<a class="anchor-link" href="#New-Features-(5)">&#182;</a></h1><p>As mentioned above, the data is presented in such a way that made comparing different school types difficult. There are various columns with a 'Y' or blank entry, each based on the data being from either a Charter School, County Entity, or an Alternative School (3 separate columns). Additionally, there is another column that tells us if the data is from either state, district/LEA, or school (1 column). In order to get one label for each line of data based on this data, a new feature was created called SchoolType. The New feature created was, "SchoolType".  Based on the 4 columns mentioned above, SchoolType attributes are Public, Charter, AltPublic, AltCharter, District, County, and State. (see code from Explore Attributes)</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Exceptional-Work-(10)">Exceptional Work (10)<a class="anchor-link" href="#Exceptional-Work-(10)">&#182;</a></h1><p>In order to better visualize the information from the student groups column, we split the data into two different groupings.  One grouping is all race/ethnicity categories.  The other grouping is all of the various special programs that are measured.  The "ALL" category was left out as it is simply the average of the averages all together. The data below represent the average distance from passing for each student group and school type.</p>
+<h2 id="Exceptional-Work">Exceptional Work<a class="anchor-link" href="#Exceptional-Work">&#182;</a></h2><p>&lt;p align = "justify"&gt;&nbsp;&nbsp;&nbsp;&nbsp;In order to better visualize the information from the student groups column, we split the data into two different groupings.  One grouping is all race/ethnicity categories.  The other grouping is all of the various special programs that are measured.  The "ALL" category was left out as it is simply the average of the averages all together. The data below represent the average distance from passing for each student group and school type.&lt;/p&gt;</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[73]:</div>
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Create an Ethnicity/Race Subgroup to compare like data.</span>
@@ -13842,7 +13992,7 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[73]:</div>
+<div class="prompt output_prompt">Out[18]:</div>
 
 
 
@@ -13944,7 +14094,7 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Use it to create bar chart to show smaller set of data (Eth/race)</span>
@@ -13962,13 +14112,13 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[74]:</div>
+<div class="prompt output_prompt">Out[19]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2d8067b7fd0&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14708af4e10&gt;</pre>
 </div>
 
 </div>
@@ -13994,7 +14144,7 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#Create an &#39;programs&#39; Subgroup to compare like data.</span>
@@ -14017,7 +14167,7 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[75]:</div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -14119,7 +14269,7 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[76]:</div>
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#use it to create bar chart to show smaller set of data (Eth/race)</span>
@@ -14137,13 +14287,13 @@ Name: currstatus, Length: 63, dtype: float64</pre>
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[76]:</div>
+<div class="prompt output_prompt">Out[21]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x2d8067fda90&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x14708d51668&gt;</pre>
 </div>
 
 </div>
